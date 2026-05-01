@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doe Agora — PROEC | Projeto Esporte Crescer</title>
+    <meta name="description" content="Faça uma doação ao PROEC e transforme a vida de uma criança através do esporte. Doação única ou recorrente via PIX ou cartão." />
+    <link rel="canonical" href="https://projetocrescer.org.br/doar" />
+    <meta property="og:title" content="Doe Agora — PROEC" />
+    <meta property="og:description" content="Cada R$ 50 equipa uma criança. Doe agora via PIX." />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main id="app">
+
+      <!-- Hero da página de doação -->
+      <section class="page-hero section" style="background: var(--primary-500); padding-top: 140px;" aria-labelledby="doe-page-title">
+        <div class="container">
+          <div class="container--narrow" style="text-align: center;">
+            <div class="badge badge--dark" style="margin: 0 auto var(--spacing-6);" data-reveal>
+              <span aria-hidden="true">♥</span> Faça a diferença hoje
+            </div>
+            <h1 id="doe-page-title" class="font-display" style="font-size: var(--text-5xl); color: var(--text-on-primary); margin-bottom: var(--spacing-6);" data-reveal>
+              Doe e transforme uma vida
+            </h1>
+            <p style="font-size: var(--text-xl); color: rgba(0,0,0,0.65); max-width: 540px; margin-inline: auto;" data-reveal>
+              Seu apoio vai diretamente para crianças e adolescentes em vulnerabilidade social em Goiânia, GO.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Opções de doação -->
+      <section class="section" style="background: var(--bg-elevated);" aria-labelledby="opcoes-title">
+        <div class="container">
+          <div class="container--narrow">
+
+            <h2 id="opcoes-title" class="text-3xl font-display" style="margin-bottom: var(--spacing-10); text-align: center;" data-reveal>
+              Escolha como doar
+            </h2>
+
+            <!-- Calculadora de impacto -->
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-secondary); border-radius: var(--radius-3xl); padding: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--spacing-8);" data-reveal>
+              <h3 class="text-xl font-display" style="margin-bottom: var(--spacing-6);">Calculadora de Impacto</h3>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--spacing-3); margin-bottom: var(--spacing-6);" role="group" aria-label="Valores de doação pré-definidos">
+                <button class="btn btn--outline calc-btn" data-value="50" aria-pressed="false">R$ 50</button>
+                <button class="btn btn--outline calc-btn" data-value="100" aria-pressed="false">R$ 100</button>
+                <button class="btn btn--outline calc-btn" data-value="150" aria-pressed="false">R$ 150</button>
+                <button class="btn btn--outline calc-btn" data-value="200" aria-pressed="false">R$ 200</button>
+                <button class="btn btn--outline calc-btn" data-value="500" aria-pressed="false">R$ 500</button>
+              </div>
+              <div id="calc-result" style="background: var(--primary-100); border-radius: var(--radius-xl); padding: var(--spacing-5) var(--spacing-6); min-height: 60px; display: flex; align-items: center;" aria-live="polite">
+                <p style="color: var(--primary-800); font-weight: 600;">Selecione um valor para ver o impacto →</p>
+              </div>
+            </div>
+
+            <!-- PIX -->
+            <div style="background: var(--neutral-950); color: var(--text-inverse); border-radius: var(--radius-3xl); padding: clamp(2rem, 5vw, 3rem); margin-bottom: var(--spacing-6);" data-reveal>
+              <div style="display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                <div style="background: var(--primary-500); color: var(--text-on-primary); border-radius: var(--radius-full); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;" aria-hidden="true">⚡</div>
+                <div>
+                  <h3 class="text-xl font-display" style="color: var(--text-inverse);">PIX — Instantâneo</h3>
+                  <p style="color: var(--neutral-400); font-size: var(--text-sm);">Transferência imediata, sem taxas</p>
+                </div>
+              </div>
+              <div class="pix-box" role="button" tabindex="0" id="pix-copy-doe" aria-label="Copiar chave PIX">
+                <div>
+                  <span class="pix-box__label">Chave PIX (E-mail)</span>
+                  <span class="pix-box__key">doe@projetocrescer.org.br</span>
+                </div>
+                <span class="pix-box__copy" id="pix-copy-doe-text">Copiar Chave</span>
+              </div>
+            </div>
+
+            <!-- Banco -->
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-secondary); border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8);" data-reveal>
+              <h3 class="text-base font-display" style="margin-bottom: var(--spacing-4);">Transferência Bancária</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+                Dados bancários disponíveis sob solicitação em
+                <a href="mailto:contato@projetocrescer.org.br" style="color: var(--primary-600); font-weight: 600;">contato@projetocrescer.org.br</a>
+              </p>
+            </div>
+
+            <!-- CTA para transparência -->
+            <div style="text-align: center; margin-top: var(--spacing-12);" data-reveal>
+              <p style="color: var(--text-tertiary); font-size: var(--text-sm); margin-bottom: var(--spacing-4);">
+                Comprometidos com a transparência total dos recursos
+              </p>
+              <a href="/transparencia.html" class="btn btn--outline btn--sm">Ver Transparência</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabela de impacto detalhada -->
+      <section class="doe section" id="impacto-doe" aria-labelledby="impacto-doe-title">
+        <div class="container">
+          <div class="doe__inner">
+            <div>
+              <div class="section-label overline" style="color: rgba(0,0,0,0.5);" data-reveal>Seu impacto</div>
+              <h2 id="impacto-doe-title" class="doe__title" data-reveal>Cada valor importa</h2>
+              <p class="doe__lead" data-reveal>Veja o que sua doação concretamente viabiliza para os jovens do PROEC.</p>
+            </div>
+            <div data-reveal="right">
+              <div class="doe__impact-table">
+                <div class="doe__impact-row">
+                  <span class="doe__impact-value">R$ 50</span>
+                  <span class="doe__impact-desc">Um uniforme completo para uma criança</span>
+                </div>
+                <div class="doe__impact-row">
+                  <span class="doe__impact-value">R$ 150</span>
+                  <span class="doe__impact-desc">Transporte para um torneio</span>
+                </div>
+                <div class="doe__impact-row">
+                  <span class="doe__impact-value">R$ 200</span>
+                  <span class="doe__impact-desc">Inscrição e material esportivo</span>
+                </div>
+                <div class="doe__impact-row">
+                  <span class="doe__impact-value">R$ 500</span>
+                  <span class="doe__impact-desc">Um mês de atividades para 10 crianças</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module">
+      async function loadPartial(id, path) {
+        try {
+          const res = await fetch(path)
+          if (res.ok) document.getElementById(id).innerHTML = await res.text()
+        } catch (e) {}
+      }
+      loadPartial('header-placeholder', '/src/partials/header.html')
+      loadPartial('footer-placeholder', '/src/partials/footer.html')
+
+      // PIX copy
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('#pix-copy-doe')
+        if (!btn) return
+        navigator.clipboard.writeText('doe@projetocrescer.org.br').then(() => {
+          const label = document.getElementById('pix-copy-doe-text')
+          if (label) { label.textContent = 'Copiado! ✓'; setTimeout(() => { label.textContent = 'Copiar Chave' }, 2500) }
+        })
+      })
+
+      // Calculadora de impacto
+      const impacts = {
+        50:  'Sua doação de <strong>R$ 50</strong> equipa uma criança com uniforme completo.',
+        100: 'Sua doação de <strong>R$ 100</strong> cobre o material esportivo de uma criança por um mês.',
+        150: 'Sua doação de <strong>R$ 150</strong> leva uma criança a um torneio (transporte incluso).',
+        200: 'Sua doação de <strong>R$ 200</strong> cobre inscrição + material esportivo completo.',
+        500: 'Sua doação de <strong>R$ 500</strong> sustenta um mês de atividades para <strong>10 crianças</strong>.',
+      }
+      document.querySelectorAll('.calc-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.calc-btn').forEach(b => { b.classList.remove('btn--primary'); b.classList.add('btn--outline'); b.setAttribute('aria-pressed','false') })
+          btn.classList.remove('btn--outline')
+          btn.classList.add('btn--primary')
+          btn.setAttribute('aria-pressed', 'true')
+          const result = document.getElementById('calc-result')
+          if (result) result.innerHTML = `<p style="color: var(--primary-800); font-weight: 600;">${impacts[btn.dataset.value]}</p>`
+        })
+      })
+    </script>
+  </body>
+</html>

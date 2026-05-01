@@ -1,0 +1,234 @@
+/* ==========================================================================
+   DESIGN TOKENS — Sistema de cores, tipografia, espaçamento, sombras
+   Baseado no DESIGN-SYSTEM.md do projeto PROEC
+   ========================================================================== */
+
+:root {
+  /* -------------------------------------------------------------------------
+     CORES PRIMÁRIAS (Amarelo Vibrante — energia, esperança)
+  -------------------------------------------------------------------------- */
+  --primary-50:  hsl(50, 100%, 97%);
+  --primary-100: hsl(50, 100%, 92%);
+  --primary-200: hsl(48, 100%, 82%);
+  --primary-300: hsl(46, 100%, 68%);
+  --primary-400: hsl(44, 97%,  57%);
+  --primary-500: hsl(43, 96%,  56%);  /* #FCD34D — cor principal */
+  --primary-600: hsl(40, 92%,  48%);
+  --primary-700: hsl(36, 88%,  40%);
+  --primary-800: hsl(32, 82%,  33%);
+  --primary-900: hsl(28, 76%,  28%);
+  --primary-950: hsl(24, 72%,  16%);
+
+  /* -------------------------------------------------------------------------
+     CORES SECUNDÁRIAS (Verde Esperança — crescimento, transformação)
+  -------------------------------------------------------------------------- */
+  --secondary-50:  hsl(152, 80%, 96%);
+  --secondary-100: hsl(152, 74%, 88%);
+  --secondary-200: hsl(151, 68%, 74%);
+  --secondary-300: hsl(152, 62%, 58%);
+  --secondary-400: hsl(153, 58%, 44%);
+  --secondary-500: hsl(160, 84%, 39%);  /* #10B981 */
+  --secondary-600: hsl(161, 90%, 32%);
+  --secondary-700: hsl(162, 94%, 26%);
+  --secondary-800: hsl(163, 88%, 21%);
+  --secondary-900: hsl(164, 80%, 17%);
+  --secondary-950: hsl(166, 76%, 10%);
+
+  /* -------------------------------------------------------------------------
+     CORES TERCIÁRIAS (Azul Confiança — profissionalismo, futuro)
+  -------------------------------------------------------------------------- */
+  --tertiary-50:  hsl(213, 100%, 97%);
+  --tertiary-100: hsl(213, 94%, 92%);
+  --tertiary-200: hsl(213, 90%, 82%);
+  --tertiary-300: hsl(213, 88%, 68%);
+  --tertiary-400: hsl(213, 84%, 57%);
+  --tertiary-500: hsl(217, 91%, 60%);  /* #3B82F6 */
+  --tertiary-600: hsl(221, 83%, 53%);
+  --tertiary-700: hsl(224, 76%, 48%);
+  --tertiary-800: hsl(226, 71%, 40%);  /* #1E40AF */
+  --tertiary-900: hsl(228, 68%, 33%);
+  --tertiary-950: hsl(230, 64%, 20%);
+
+  /* -------------------------------------------------------------------------
+     CORES NEUTRAS (Escala com toque azulado sofisticado)
+  -------------------------------------------------------------------------- */
+  --neutral-50:  hsl(220, 20%, 98%);   /* #FAFAFA */
+  --neutral-100: hsl(220, 15%, 95%);
+  --neutral-200: hsl(220, 14%, 90%);
+  --neutral-300: hsl(220, 12%, 82%);
+  --neutral-400: hsl(220, 10%, 65%);
+  --neutral-500: hsl(220,  9%, 50%);
+  --neutral-600: hsl(220,  8%, 40%);
+  --neutral-700: hsl(220,  7%, 30%);
+  --neutral-800: hsl(220,  8%, 20%);
+  --neutral-900: hsl(220, 10%, 13%);   /* #1A1D23 */
+  --neutral-950: hsl(220, 12%, 8%);    /* #111827 */
+
+  /* -------------------------------------------------------------------------
+     CORES SEMÂNTICAS
+  -------------------------------------------------------------------------- */
+  --success-500: hsl(142, 71%, 45%);
+  --warning-500: hsl(32,  95%, 44%);
+  --error-500:   hsl(0,   84%, 60%);
+  --info-500:    hsl(217, 91%, 60%);
+
+  /* -------------------------------------------------------------------------
+     CORES FUNCIONAIS (light mode padrão)
+  -------------------------------------------------------------------------- */
+  --bg-primary:    hsl(50, 100%, 97%);   /* #FEFCE8 — fundo amarelo suave */
+  --bg-secondary:  hsl(220, 20%, 98%);
+  --bg-tertiary:   hsl(220, 15%, 95%);
+  --bg-elevated:   hsl(0, 0%, 100%);
+  --bg-overlay:    hsla(220, 12%, 8%, 0.6);
+  --bg-dark:       hsl(220, 12%, 8%);    /* #111827 */
+
+  --text-primary:   hsl(220, 10%, 13%);  /* #1A1D23 */
+  --text-secondary: hsl(220,  8%, 35%);
+  --text-tertiary:  hsl(220,  7%, 55%);
+  --text-disabled:  hsl(220,  5%, 70%);
+  --text-inverse:   hsl(220, 20%, 98%);
+  --text-on-primary: hsl(220, 10%, 13%); /* texto escuro sobre amarelo */
+
+  --border-primary:   hsl(220, 12%, 88%);
+  --border-secondary: hsl(220, 10%, 92%);
+  --border-focus:     var(--primary-500);
+
+  /* -------------------------------------------------------------------------
+     GRADIENTES
+  -------------------------------------------------------------------------- */
+  --gradient-primary: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+  --gradient-brand:   linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 100%);
+  --gradient-hero:    linear-gradient(160deg, var(--primary-50) 0%, var(--bg-secondary) 60%, var(--tertiary-50) 100%);
+  --gradient-dark:    linear-gradient(160deg, var(--neutral-950) 0%, var(--neutral-900) 100%);
+  --gradient-glass:   linear-gradient(135deg, hsla(0,0%,100%,0.15), hsla(0,0%,100%,0.05));
+
+  /* -------------------------------------------------------------------------
+     TIPOGRAFIA
+  -------------------------------------------------------------------------- */
+  --font-display: 'Cardo', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Escala fluida com clamp() */
+  --text-xs:   clamp(0.70rem, 0.68rem + 0.10vw, 0.75rem);
+  --text-sm:   clamp(0.85rem, 0.82rem + 0.15vw, 0.875rem);
+  --text-base: clamp(1.00rem, 0.96rem + 0.20vw, 1.125rem);
+  --text-lg:   clamp(1.10rem, 1.05rem + 0.25vw, 1.25rem);
+  --text-xl:   clamp(1.20rem, 1.10rem + 0.50vw, 1.5rem);
+  --text-2xl:  clamp(1.40rem, 1.25rem + 0.75vw, 2rem);
+  --text-3xl:  clamp(1.70rem, 1.40rem + 1.50vw, 2.5rem);
+  --text-4xl:  clamp(2.00rem, 1.60rem + 2.00vw, 3.5rem);
+  --text-5xl:  clamp(2.50rem, 1.80rem + 3.50vw, 5rem);
+  --text-6xl:  clamp(3.00rem, 2.00rem + 5.00vw, 7rem);
+  --text-hero: clamp(3.50rem, 2.00rem + 7.50vw, 10rem);
+
+  /* -------------------------------------------------------------------------
+     ESPAÇAMENTOS
+  -------------------------------------------------------------------------- */
+  --spacing-1:  0.25rem;
+  --spacing-2:  0.50rem;
+  --spacing-3:  0.75rem;
+  --spacing-4:  1.00rem;
+  --spacing-5:  1.25rem;
+  --spacing-6:  1.50rem;
+  --spacing-8:  2.00rem;
+  --spacing-10: 2.50rem;
+  --spacing-12: 3.00rem;
+  --spacing-16: 4.00rem;
+  --spacing-20: 5.00rem;
+  --spacing-24: 6.00rem;
+  --spacing-32: 8.00rem;
+  --spacing-40: 10.00rem;
+  --spacing-48: 12.00rem;
+  --spacing-60: 15.00rem;
+
+  /* Fluid sections */
+  --section-py: clamp(4rem, 8vw, 8rem);
+  --container:  clamp(1.5rem, 5vw, 6rem);
+
+  /* -------------------------------------------------------------------------
+     SOMBRAS
+  -------------------------------------------------------------------------- */
+  --shadow-xs:   0 1px 2px hsla(220, 12%, 8%, 0.05);
+  --shadow-sm:   0 1px 3px hsla(220, 12%, 8%, 0.10), 0 1px 2px hsla(220, 12%, 8%, 0.06);
+  --shadow-md:   0 4px 6px hsla(220, 12%, 8%, 0.07), 0 2px 4px hsla(220, 12%, 8%, 0.06);
+  --shadow-lg:   0 10px 15px hsla(220, 12%, 8%, 0.10), 0 4px 6px hsla(220, 12%, 8%, 0.05);
+  --shadow-xl:   0 20px 25px hsla(220, 12%, 8%, 0.10), 0 10px 10px hsla(220, 12%, 8%, 0.04);
+  --shadow-2xl:  0 25px 50px hsla(220, 12%, 8%, 0.25);
+  --shadow-glow: 0 0 20px hsla(43, 96%, 56%, 0.40), 0 0 60px hsla(43, 96%, 56%, 0.15);
+  --shadow-glow-green: 0 0 20px hsla(160, 84%, 39%, 0.35);
+
+  /* -------------------------------------------------------------------------
+     RADII
+  -------------------------------------------------------------------------- */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-2xl:  24px;
+  --radius-3xl:  32px;
+  --radius-full: 9999px;
+
+  /* -------------------------------------------------------------------------
+     TRANSIÇÕES
+  -------------------------------------------------------------------------- */
+  --ease-out-expo:   cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ:   cubic-bezier(0.00, 0.55, 0.45, 1);
+  --ease-in-out:     cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast:   150ms var(--ease-out-expo);
+  --transition-base:   300ms var(--ease-out-expo);
+  --transition-slow:   500ms var(--ease-out-expo);
+  --transition-slower: 800ms var(--ease-out-expo);
+
+  /* -------------------------------------------------------------------------
+     Z-INDEX
+  -------------------------------------------------------------------------- */
+  --z-below:    -1;
+  --z-base:      1;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-cursor:   9000;
+  --z-top:      9999;
+}
+
+/* Dark mode automático */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary:     hsl(220, 12%, 8%);
+    --bg-secondary:   hsl(220, 10%, 12%);
+    --bg-tertiary:    hsl(220,  9%, 16%);
+    --bg-elevated:    hsl(220,  8%, 20%);
+    --bg-overlay:     hsla(220, 12%, 8%, 0.8);
+
+    --text-primary:   hsl(220, 15%, 95%);
+    --text-secondary: hsl(220, 10%, 72%);
+    --text-tertiary:  hsl(220,  8%, 52%);
+    --text-disabled:  hsl(220,  6%, 38%);
+    --text-on-primary: hsl(220, 10%, 8%);
+
+    --border-primary:   hsl(220, 10%, 22%);
+    --border-secondary: hsl(220,  8%, 18%);
+  }
+}
+
+/* Dark mode manual via atributo */
+[data-theme="dark"] {
+  --bg-primary:     hsl(220, 12%, 8%);
+  --bg-secondary:   hsl(220, 10%, 12%);
+  --bg-tertiary:    hsl(220,  9%, 16%);
+  --bg-elevated:    hsl(220,  8%, 20%);
+  --bg-overlay:     hsla(220, 12%, 8%, 0.8);
+  --text-primary:   hsl(220, 15%, 95%);
+  --text-secondary: hsl(220, 10%, 72%);
+  --text-tertiary:  hsl(220,  8%, 52%);
+  --text-disabled:  hsl(220,  6%, 38%);
+  --text-on-primary: hsl(220, 10%, 8%);
+  --border-primary:   hsl(220, 10%, 22%);
+  --border-secondary: hsl(220,  8%, 18%);
+}
