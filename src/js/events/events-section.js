@@ -16,6 +16,134 @@ function formatMonthYear(dateValue) {
   return label.replace('.', '').replace(/^./, (char) => char.toUpperCase())
 }
 
+const MINOR_WORDS = new Set([
+  'a', 'as', 'ao', 'aos',
+  'com',
+  'da', 'das', 'de', 'do', 'dos',
+  'e', 'em',
+  'na', 'nas', 'no', 'nos',
+  'o', 'os',
+  'para', 'por',
+  'sem',
+])
+
+const ACRONYMS = new Set([
+  'GO', 'NBA', 'ONG', 'PROEC', 'SESC', 'UNIRG', 'WBC', 'WBF',
+])
+
+function isRomanNumeral(token) {
+  return /^[ivxlcdm]+$/i.test(token)
+}
+
+function normalizeWord(word, isStart) {
+  const upper = word.toUpperCase()
+  const lower = word.toLowerCase()
+
+  if (ACRONYMS.has(upper)) {
+    return upper
+  }
+
+  if (isRomanNumeral(word)) {
+    return upper
+  }
+
+  if (/^\d+$/.test(word) || /^\d+[a-z]\d+$/i.test(word)) {
+    return upper
+  }
+
+  if (!isStart && MINOR_WORDS.has(lower)) {
+    return lower
+  }
+
+  return `${lower.charAt(0).toUpperCase()}${lower.slice(1)}`
+}
+
+function normalizeToken(token, isStart) {
+  const match = token.match(/^([^\p{L}\p{N}]*)((?:[\p{L}\p{N}]+(?:['.\-/][\p{L}\p{N}]+)*)?)([^\p{L}\p{N}]*)$/u)
+  if (!match) {
+    return {
+      token,
+      startsNext: /[-:/|()]$/.test(token),
+    }
+  }
+
+  const [, leading, core, trailing] = match
+  if (!core) {
+    return {
+      token,
+      startsNext: /[-:/|()]$/.test(token),
+    }
+  }
+
+  const normalizedCore = core
+    .split(/([\-\/])/)
+    .map((part, index) => {
+      if (part === '-' || part === '/') {
+        return part
+      }
+
+      const isSubStart = index === 0 ? isStart : true
+      return normalizeWord(part, isSubStart)
+    })
+    .join('')
+
+  const startsNext = /[-:/|()]$/.test(trailing || token)
+
+  return {
+    token: `${leading}${normalizedCore}${trailing}`,
+    startsNext,
+  }
+}
+
+function normalizeTitle(raw) {
+  if (!raw || typeof raw !== 'string') {
+    return 'Evento PROEC'
+  }
+
+  const compact = raw.replace(/\s+/g, ' ').trim()
+  if (!compact) {
+    return 'Evento PROEC'
+  }
+
+  const tokens = compact.split(' ')
+  let startsWord = true
+
+  const normalized = tokens.map((token) => {
+    const result = normalizeToken(token, startsWord)
+    startsWord = result.startsNext
+    return result.token
+  }).join(' ')
+
+  return normalized
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([,.;:!?])/g, '$1')
+    .replace(/([,.;:!?])(?!\s|$)/g, '$1 ')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+\)/g, ')')
+    .replace(/(\d)\s*\/\s*(\d)/g, '$1/$2')
+    .trim() || 'Evento PROEC'
+}
+
+function normalizeShortTitle(raw, fallback) {
+  const base = normalizeTitle(raw || fallback)
+  if (base.length <= 64) {
+    return base
+  }
+
+  return `${base.slice(0, 61).trim()}...`
+}
+
+function normalizeEvent(item) {
+  const title = normalizeTitle(item?.title)
+  const shortTitle = normalizeShortTitle(item?.shortTitle, title)
+
+  return {
+    ...item,
+    title,
+    shortTitle,
+  }
+}
+
 function sortByDateDesc(items) {
   return [...items].sort((left, right) => {
     const l = left.date ? new Date(`${left.date}T00:00:00`).getTime() : Number.NEGATIVE_INFINITY
@@ -93,7 +221,7 @@ export async function initEventsSection() {
       return
     }
 
-    const sortedItems = sortByDateDesc(items)
+    const sortedItems = sortByDateDesc(items.map(normalizeEvent))
     const fragment = document.createDocumentFragment()
 
     for (const item of sortedItems) {
