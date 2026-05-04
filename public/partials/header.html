@@ -1,0 +1,44 @@
+<!-- ========================================================
+     HEADER — Navegação sticky com logo, links e CTAs
+     Incluído via vite-plugin-html em todas as páginas
+     ======================================================== -->
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-follower" aria-hidden="true"></div>
+<div class="page-transition" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="header" role="banner">
+  <div class="container header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="PROEC — Projeto Esporte Crescer">
+      <img src="/images/site/logo-ong.png" alt="PROEC — Projeto Esporte Crescer" class="header__logo-img" style="height: 48px; width: auto; display: block;" />
+    </a>
+
+    <!-- Navegação desktop -->
+    <nav class="header__nav" id="main-nav" aria-label="Navegação principal">
+      <ul class="header__nav-list" role="list">
+        <li><a href="/#sobre" class="header__nav-link">Sobre</a></li>
+        <li><a href="/#eventos-realizados" class="header__nav-link">Eventos</a></li>
+        <li><a href="/#modalidades" class="header__nav-link">Modalidades</a></li>
+        <li><a href="/patrocinio.html" class="header__nav-link">Patrocínio</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTAs -->
+    <div class="header__actions">
+      <a href="/doar.html" class="btn btn--primary btn--sm" data-magnetic>
+        Doe Agora
+      </a>
+      <button
+        class="header__menu-btn"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Abrir menu de navegação"
+      >
+        <span class="header__menu-icon" aria-hidden="true">☰</span>
+      </button>
+    </div>
+
+  </div>
+</header>

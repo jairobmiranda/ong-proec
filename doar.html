@@ -110,8 +110,8 @@
           if (res.ok) document.getElementById(id).innerHTML = await res.text()
         } catch (e) {}
       }
-      loadPartial('header-placeholder', '/src/partials/header.html')
-      loadPartial('footer-placeholder', '/src/partials/footer.html')
+      loadPartial('header-placeholder', '/partials/header.html')
+      loadPartial('footer-placeholder', '/partials/footer.html')
 
       /* PIX copy — comentado temporariamente
       document.addEventListener('click', (e) => {
