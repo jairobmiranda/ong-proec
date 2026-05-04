@@ -4,71 +4,92 @@
  */
 
 import { gsap } from 'gsap'
+import { getLenis } from '../core/smooth-scroll.js'
 
 export function initHeader() {
   const header = document.querySelector('.header')
   if (!header) return
 
-  // Scroll listener — blur e shadow aparecem
+  // ---- Scroll: hide/show com threshold para evitar tics do Lenis ----
   let lastScroll = 0
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY
+
+  function onScroll({ scroll }) {
+    const current = scroll
+    const delta = current - lastScroll
+
+    // Ignora micro-movimentos (<4px) — elimina oscilações do easing Lenis
+    if (Math.abs(delta) < 4) return
+
     if (current > 80) {
       header.classList.add('header--scrolled')
     } else {
       header.classList.remove('header--scrolled')
     }
-    // Esconde header ao scrollar para baixo, mostra ao subir
-    if (current > lastScroll && current > 300) {
+
+    if (delta > 0 && current > 300) {
       header.classList.add('header--hidden')
-    } else {
+    } else if (delta < 0) {
       header.classList.remove('header--hidden')
     }
-    lastScroll = current
-  }, { passive: true })
 
-  // Menu mobile
+    lastScroll = current
+  }
+
+  // Usa o evento nativo do Lenis (sincronizado com GSAP ticker, sem duplo disparo)
+  const lenis = getLenis()
+  if (lenis) {
+    lenis.on('scroll', onScroll)
+  } else {
+    window.addEventListener(
+      'scroll',
+      () => onScroll({ scroll: window.scrollY }),
+      { passive: true }
+    )
+  }
+
+  // ---- Menu mobile ----
   const menuBtn = document.querySelector('.header__menu-btn')
   const nav = document.querySelector('.header__nav')
   const menuIcon = document.querySelector('.header__menu-icon')
 
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = nav.classList.contains('is-open')
+  if (!menuBtn || !nav) return
 
-      if (!isOpen) {
-        nav.classList.add('is-open')
-        menuBtn.setAttribute('aria-expanded', 'true')
-        gsap.fromTo(nav,
-          { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }
-        )
-        if (menuIcon) menuIcon.textContent = '✕'
-        document.body.style.overflow = 'hidden'
-      } else {
-        gsap.to(nav, {
-          opacity: 0,
-          y: -10,
-          duration: 0.25,
-          ease: 'expo.in',
-          onComplete: () => {
-            nav.classList.remove('is-open')
-            menuBtn.setAttribute('aria-expanded', 'false')
-            document.body.style.overflow = ''
-          },
-        })
-        if (menuIcon) menuIcon.textContent = '☰'
-      }
-    })
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('is-open')
 
-    // Fecha ao clicar em link
-    nav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('is-open')
-        menuBtn.setAttribute('aria-expanded', 'false')
-        document.body.style.overflow = ''
-        if (menuIcon) menuIcon.textContent = '☰'
+    if (!isOpen) {
+      nav.classList.add('is-open')
+      menuBtn.setAttribute('aria-expanded', 'true')
+      gsap.fromTo(
+        nav,
+        { opacity: 0, y: -16 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'expo.out' }
+      )
+      if (menuIcon) menuIcon.textContent = '✕'
+      document.body.style.overflow = 'hidden'
+    } else {
+      gsap.to(nav, {
+        opacity: 0,
+        y: -10,
+        duration: 0.25,
+        ease: 'expo.in',
+        onComplete: () => {
+          nav.classList.remove('is-open')
+          menuBtn.setAttribute('aria-expanded', 'false')
+          document.body.style.overflow = ''
+        },
       })
+      if (menuIcon) menuIcon.textContent = '☰'
+    }
+  })
+
+  // Fecha ao clicar em link
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open')
+      menuBtn.setAttribute('aria-expanded', 'false')
+      document.body.style.overflow = ''
+      if (menuIcon) menuIcon.textContent = '☰'
     })
-  }
+  })
 }

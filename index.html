@@ -251,15 +251,6 @@
 
     <script type="module" src="/src/js/main.js"></script>
     <script type="module">
-      async function loadPartial(id, path) {
-        try {
-          const res = await fetch(path)
-          if (res.ok) document.getElementById(id).innerHTML = await res.text()
-        } catch (e) { console.warn('Partial não carregado:', path) }
-      }
-      loadPartial('header-placeholder', '/partials/header.html')
-      loadPartial('footer-placeholder', '/partials/footer.html')
-
       /* PIX copy — comentado temporariamente
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('#pix-copy-btn')

@@ -1,6 +1,6 @@
 /**
  * main.js — Entry point do site
- * Inicializa todos os módulos na ordem correta
+ * Carrega partials e inicializa todos os módulos na ordem correta
  */
 
 import '../css/main.css'
@@ -14,8 +14,24 @@ import { initCounters } from './animations/counters.js'
 import { initHeader } from './animations/header.js'
 import { initEventsSection } from './events/events-section.js'
 
+async function loadPartial(id, path) {
+  try {
+    const res = await fetch(path)
+    if (res.ok) document.getElementById(id).innerHTML = await res.text()
+  } catch (e) {
+    console.warn('Partial não carregado:', path)
+  }
+}
+
 // Aguarda DOM estar pronto
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // 0. Carrega partials antes de qualquer inicialização
+  //    Header e footer precisam existir no DOM antes de vincular eventos
+  await Promise.all([
+    loadPartial('header-placeholder', '/partials/header.html'),
+    loadPartial('footer-placeholder', '/partials/footer.html'),
+  ])
+
   // 1. Scroll suave (Lenis + GSAP ticker)
   initSmoothScroll()
 
