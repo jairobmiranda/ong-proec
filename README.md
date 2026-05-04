@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/images/site/logo.png" alt="PROEC Logo" width="120" />
+<img src="public/images/site/logo-ong.png" alt="PROEC Logo" width="120" />
 
 # PROEC — Projeto Esporte Crescer
 
