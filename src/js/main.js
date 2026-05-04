@@ -12,6 +12,7 @@ import { initScrollReveals } from './core/scroll-reveals.js'
 import { initHeroAnimations } from './animations/hero.js'
 import { initCounters } from './animations/counters.js'
 import { initHeader } from './animations/header.js'
+import { initEventsSection } from './events/events-section.js'
 
 // Aguarda DOM estar pronto
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimations()
   initCounters()
   initHeader()
+  initEventsSection()
 })

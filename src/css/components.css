@@ -178,35 +178,6 @@
   font-weight: 500;
 }
 
-/* Tier card (patrocínio) */
-.card--tier {
-  position: relative;
-  overflow: hidden;
-}
-.card--tier.is-featured {
-  background: var(--neutral-950);
-  color: var(--text-inverse);
-  border-color: transparent;
-}
-.card--tier.is-featured::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(from var(--angle), var(--primary-500), var(--secondary-500), var(--tertiary-500), var(--primary-500));
-  border-radius: calc(var(--radius-2xl) + 2px);
-  z-index: var(--z-below);
-  animation: borderRotate 4s linear infinite;
-}
-.card--tier.is-featured::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: var(--neutral-950);
-  border-radius: var(--radius-2xl);
-  z-index: var(--z-below);
-}
-.card--tier.is-featured > * { position: relative; z-index: var(--z-base); }
-
 /* ---- Section label ---- */
 
 .section-label {

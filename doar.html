@@ -45,7 +45,7 @@
               Escolha como doar
             </h2>
 
-            <!-- PIX -->
+            <!-- PIX comentado temporariamente
             <div style="background: var(--neutral-950); color: var(--text-inverse); border-radius: var(--radius-3xl); padding: clamp(2rem, 5vw, 3rem); margin-bottom: var(--spacing-6);" data-reveal>
               <div style="display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
                 <div style="background: var(--primary-500); color: var(--text-on-primary); border-radius: var(--radius-full); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;" aria-hidden="true">⚡</div>
@@ -62,16 +62,18 @@
                 <span class="pix-box__copy" id="pix-copy-doe-text">Copiar Chave</span>
               </div>
             </div>
+            -->
 
             <!-- Banco -->
             <div style="background: var(--bg-primary); border: 1px solid var(--border-secondary); border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8);" data-reveal>
               <h3 class="text-base font-display" style="margin-bottom: var(--spacing-4);">Transferência Bancária</h3>
               <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 2;">
-                <strong>Banco:</strong> [preencher]<br>
-                <strong>Agência:</strong> [preencher]<br>
-                <strong>Conta:</strong> [preencher]<br>
-                <strong>Favorecido:</strong> PROEC — Projeto Esporte Crescer<br>
-                <strong>CNPJ:</strong> [preencher]
+                <strong>Banco:</strong> Banco do Brasil<br>
+                <strong>Agência:</strong> 3607-2<br>
+                <strong>Conta Corrente:</strong> 64277-0<br>
+                <strong>Poupança-ouro:</strong> 510.064.277-3<br>
+                <strong>Favorecido:</strong> ASSOCIAÇÃO PROJETO ESPORTE CRESCER - PROEC<br>
+                <strong>CNPJ:</strong> 21.793.696/0001-20
               </p>
             </div>
 
@@ -80,16 +82,15 @@
               <h3 class="text-base font-display" style="margin-bottom: var(--spacing-3);">Dúvidas ou Envio de Comprovante</h3>
               <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.8;">
                 Após realizar a transferência, envie o comprovante para:<br>
-                <a href="mailto:doe@projetocrescer.org.br" style="color: var(--primary-600); font-weight: 700;">doe@projetocrescer.org.br</a>
+                <a href="mailto:projetosesportecrescer@gmail.com" style="color: var(--primary-600); font-weight: 700;">projetosesportecrescer@gmail.com</a>
               </p>
             </div>
 
-            <!-- CTA para transparência -->
+            <!-- Mensagem de confiança -->
             <div style="text-align: center; margin-top: var(--spacing-12);" data-reveal>
               <p style="color: var(--text-tertiary); font-size: var(--text-sm); margin-bottom: var(--spacing-4);">
-                Comprometidos com a transparência total dos recursos
+                Comprometidos com responsabilidade e impacto real em cada doação
               </p>
-              <a href="/transparencia.html" class="btn btn--outline btn--sm">Ver Transparência</a>
             </div>
 
           </div>
@@ -112,7 +113,7 @@
       loadPartial('header-placeholder', '/src/partials/header.html')
       loadPartial('footer-placeholder', '/src/partials/footer.html')
 
-      // PIX copy
+      /* PIX copy — comentado temporariamente
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('#pix-copy-doe')
         if (!btn) return
@@ -121,6 +122,7 @@
           if (label) { label.textContent = 'Copiado! ✓'; setTimeout(() => { label.textContent = 'Copiar Chave' }, 2500) }
         })
       })
+      */
 
 
     </script>

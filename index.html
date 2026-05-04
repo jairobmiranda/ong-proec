@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PROEC — Projeto Esporte Crescer | Esporte e Transformação Social</title>
     <meta name="description" content="O PROEC transforma a vida de crianças e adolescentes em vulnerabilidade social por meio do esporte, educação e ações comunitárias em Goiânia, GO." />
-    <meta name="keywords" content="ONG, projeto social, esporte, crianças, Goiânia, doação, patrocínio, futebol, transformação social" />
+    <meta name="keywords" content="ONG, projeto social, esporte, crianças, Goiânia, doação, futebol, transformação social, eventos" />
     <link rel="canonical" href="https://projetocrescer.org.br/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="PROEC — Projeto Esporte Crescer" />
-    <meta property="og:description" content="Transformando vidas através do esporte em Goiânia, GO. Doe ou seja patrocinador." />
+    <meta property="og:description" content="Transformando vidas através do esporte em Goiânia, GO. Conheça nossos eventos e apoie esta jornada." />
     <meta property="og:url" content="https://projetocrescer.org.br/" />
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta property="og:locale" content="pt_BR" />
@@ -46,16 +46,13 @@
             </h1>
             <p class="hero__lead" data-reveal>
               O PROEC usa o poder do esporte para desenvolver crianças e adolescentes
-              em vulnerabilidade social — formando cidadãos, atletas e seres humanos
+              em vulnerabilidade social, formando cidadãos, atletas e seres humanos
               completos em Goiânia, GO.
             </p>
             <div class="hero__ctas">
               <a href="/doar.html" class="btn btn--primary btn--xl hero__cta" data-magnetic aria-label="Fazer uma doação para o PROEC">
                 <span>Doe Agora</span>
                 <span aria-hidden="true">→</span>
-              </a>
-              <a href="/patrocinio.html" class="btn btn--ghost-light btn--xl hero__cta" aria-label="Conhecer oportunidades de patrocínio">
-                Seja Patrocinador
               </a>
             </div>
           </div>
@@ -89,9 +86,6 @@
                 <span class="badge badge--tertiary">🤝 Parceria</span>
                 <span class="badge badge--outline">📍 Goiânia, GO</span>
               </div>
-              <div style="margin-top: 2rem;" data-reveal>
-                <a href="/transparencia.html" class="btn btn--outline btn--sm">Ver Transparência</a>
-              </div>
             </div>
           </div>
         </div>
@@ -119,7 +113,7 @@
             <article class="principio-card">
               <div class="principio-card__icon" aria-hidden="true">❤️</div>
               <h3 class="principio-card__title">Valores</h3>
-              <p class="principio-card__body">Respeito · Disciplina · Trabalho em equipe · Inclusão · Compromisso social · Transparência · Amor pelo que fazemos.</p>
+              <p class="principio-card__body">Respeito · Disciplina · Trabalho em equipe · Inclusão · Compromisso social · Amor pelo que fazemos.</p>
             </article>
           </div>
         </div>
@@ -176,6 +170,25 @@
         </div>
       </section>
 
+      <!-- EVENTOS REALIZADOS -->
+      <section class="eventos section" id="eventos-realizados" aria-labelledby="eventos-title" data-events-endpoint="/data/events-albums.json">
+        <div class="container">
+          <div class="eventos__header" data-reveal>
+            <div class="section-label text-brand overline">Memorial PROEC</div>
+            <h2 id="eventos-title" class="text-4xl font-display" style="margin-top: 1rem;">Eventos Realizados</h2>
+            <p class="text-lead" style="margin-top: 1rem;">
+              Uma linha do tempo viva da nossa caminhada com crianças, jovens e famílias.
+            </p>
+          </div>
+
+          <div id="eventos-status" class="eventos__status" role="status" aria-live="polite">
+            Carregando eventos...
+          </div>
+
+          <div id="eventos-grid" class="eventos__grid" hidden></div>
+        </div>
+      </section>
+
       <!-- DOE AGORA -->
       <section class="doe section" id="doe" aria-labelledby="doe-title">
         <div class="container">
@@ -184,7 +197,7 @@
             <div>
               <div class="section-label overline" style="color: rgba(0,0,0,0.5);" data-reveal>Faça a diferença</div>
               <h2 id="doe-title" class="doe__title" data-reveal>Sua doação<br>muda uma vida</h2>
-              <p class="doe__lead" data-reveal>Cada real doado vai diretamente para o desenvolvimento de uma criança. Sem intermediários. Com transparência total.</p>
+              <p class="doe__lead" data-reveal>Cada real doado vai diretamente para o desenvolvimento de uma criança. Sem intermediários. Com foco total em impacto.</p>
               <div class="doe__ctas" data-reveal>
                 <a href="/doar.html" class="btn btn--white btn--lg" data-magnetic>Ver formas de doação</a>
               </div>
@@ -193,7 +206,7 @@
             <div data-reveal="right">
               <div style="display: flex; flex-direction: column; gap: var(--spacing-4);">
 
-                <!-- PIX -->
+                <!-- PIX comentado temporariamente
                 <div class="pix-box" role="button" tabindex="0" id="pix-copy-btn" aria-label="Copiar chave PIX">
                   <div>
                     <span class="pix-box__label">PIX — Chave E-mail</span>
@@ -201,16 +214,18 @@
                   </div>
                   <span class="pix-box__copy" id="pix-copy-text">Copiar</span>
                 </div>
+                -->
 
                 <!-- Banco -->
                 <div style="background: hsla(0,0%,0%,0.10); border-radius: var(--radius-2xl); padding: var(--spacing-5) var(--spacing-6);">
                   <p style="font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.50; margin-bottom: var(--spacing-3);">Transferência Bancária</p>
                   <p style="font-size: var(--text-sm); line-height: 2; color: hsl(133,20%,12%);">
-                    <strong>Banco:</strong> [preencher]<br>
-                    <strong>Agência:</strong> [preencher]<br>
-                    <strong>Conta:</strong> [preencher]<br>
-                    <strong>Favorecido:</strong> PROEC — Projeto Esporte Crescer<br>
-                    <strong>CNPJ:</strong> [preencher]
+                    <strong>Banco:</strong> Banco do Brasil<br>
+                    <strong>Agência:</strong> 3607-2<br>
+                    <strong>Conta Corrente:</strong> 64277-0<br>
+                    <strong>Poupança-ouro:</strong> 510.064.277-3<br>
+                    <strong>Favorecido:</strong> ASSOCIAÇÃO PROJETO ESPORTE CRESCER - PROEC<br>
+                    <strong>CNPJ:</strong> 21.793.696/0001-20
                   </p>
                 </div>
 
@@ -219,78 +234,13 @@
                   <p style="font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.50; margin-bottom: var(--spacing-3);">Dúvidas ou Comprovante</p>
                   <p style="font-size: var(--text-sm); line-height: 1.8; color: hsl(133,20%,12%);">
                     Envie o comprovante ou entre em contato:<br>
-                    <a href="mailto:doe@projetocrescer.org.br" style="font-weight: 700; text-decoration: underline;">doe@projetocrescer.org.br</a>
+                    <a href="mailto:projetosesportecrescer@gmail.com" style="font-weight: 700; text-decoration: underline;">projetosesportecrescer@gmail.com</a>
                   </p>
                 </div>
 
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      <!-- SEJA PATROCINADOR -->
-      <section class="patrocinio section" id="patrocinio" aria-labelledby="patrocinio-title">
-        <div class="container">
-          <div class="patrocinio__header" data-reveal>
-            <div class="section-label text-tertiary overline" style="justify-content: center;">Parcerias Corporativas</div>
-            <h2 id="patrocinio-title" class="text-4xl font-display" style="margin-top: 1rem;">Seja Patrocinador</h2>
-            <p class="text-lead" style="margin-top: 1rem;">Associe sua empresa a uma causa real e gere impacto na comunidade.</p>
-          </div>
-          <div class="patrocinio__grid" data-reveal-group>
-            <article class="tier-card" aria-label="Nível Bronze">
-              <span class="tier-card__medal" aria-hidden="true">🥉</span>
-              <h3 class="tier-card__name">Bronze</h3>
-              <p class="tier-card__price">R$ 1.000</p>
-              <p class="tier-card__period">por mês</p>
-              <ul class="tier-card__list" role="list">
-                <li class="tier-card__item">Logo em site e redes sociais</li>
-                <li class="tier-card__item">Citação em eventos</li>
-                <li class="tier-card__item">Relatório trimestral</li>
-                <li class="tier-card__item">Certificado de parceria</li>
-              </ul>
-              <a href="/patrocinio.html" class="btn btn--outline w-full">Saber Mais</a>
-            </article>
-            <article class="tier-card" aria-label="Nível Prata">
-              <span class="tier-card__medal" aria-hidden="true">🥈</span>
-              <h3 class="tier-card__name">Prata</h3>
-              <p class="tier-card__price">R$ 2.500</p>
-              <p class="tier-card__period">por mês</p>
-              <ul class="tier-card__list" role="list">
-                <li class="tier-card__item">Tudo do Bronze</li>
-                <li class="tier-card__item">Logo em uniformes e banners</li>
-                <li class="tier-card__item">Nomear uma modalidade</li>
-                <li class="tier-card__item">Participação em ações sociais</li>
-              </ul>
-              <a href="/patrocinio.html" class="btn btn--outline w-full">Saber Mais</a>
-            </article>
-            <article class="tier-card" aria-label="Nível Ouro">
-              <span class="tier-card__medal" aria-hidden="true">🥇</span>
-              <h3 class="tier-card__name">Ouro</h3>
-              <p class="tier-card__price">R$ 5.000</p>
-              <p class="tier-card__period">por mês</p>
-              <ul class="tier-card__list" role="list">
-                <li class="tier-card__item">Tudo do Prata</li>
-                <li class="tier-card__item">Cobertura exclusiva de mídia</li>
-                <li class="tier-card__item">Visitas guiadas às atividades</li>
-                <li class="tier-card__item">Co-branding em projetos especiais</li>
-              </ul>
-              <a href="/patrocinio.html" class="btn btn--outline w-full">Saber Mais</a>
-            </article>
-            <article class="tier-card tier-card--master" aria-label="Nível Master — destaque">
-              <span class="tier-card__medal" aria-hidden="true">💎</span>
-              <h3 class="tier-card__name" style="color: var(--text-inverse);">Master</h3>
-              <p class="tier-card__price">R$ 10k+</p>
-              <p class="tier-card__period">por mês</p>
-              <ul class="tier-card__list" role="list">
-                <li class="tier-card__item">Tudo do Ouro</li>
-                <li class="tier-card__item">Patrocinador master exclusivo</li>
-                <li class="tier-card__item">Relatórios mensais personalizados</li>
-                <li class="tier-card__item">Reuniões estratégicas trimestrais</li>
-              </ul>
-              <a href="/patrocinio.html" class="btn btn--primary w-full" data-magnetic>Falar Agora</a>
-            </article>
           </div>
         </div>
       </section>
@@ -310,6 +260,7 @@
       loadPartial('header-placeholder', '/src/partials/header.html')
       loadPartial('footer-placeholder', '/src/partials/footer.html')
 
+      /* PIX copy — comentado temporariamente
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('#pix-copy-btn')
         if (!btn) return
@@ -318,6 +269,7 @@
           if (label) { label.textContent = 'Copiado! ✓'; setTimeout(() => { label.textContent = 'Copiar' }, 2500) }
         })
       })
+      */
 
       const track = document.getElementById('modalidades-track')
       if (track) {
