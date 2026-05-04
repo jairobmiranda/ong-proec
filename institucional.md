@@ -71,7 +71,7 @@ Poupança-Poupex: 960.064.277-5
 
 # Contato
 LIGUE-NOS
-(62) 4141-5115
+(62) 3609-4915
 (62) 98430-5832  (whatsapp, pode colocar o link)
 EMAIL
 projetosesportecrescer@gmail.com
