@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doe Agora — PROEC | Projeto Esporte Crescer</title>
-    <meta name="description" content="Faça uma doação ao PROEC e transforme a vida de uma criança através do esporte. Doação única ou recorrente via PIX ou cartão." />
+    <meta name="description" content="Faça uma doação ao PROEC e transforme a vida de uma criança através do esporte em Goiânia, GO. Doe via PIX ou transferência bancária." />
     <link rel="canonical" href="https://projetocrescer.org.br/doar" />
     <meta property="og:title" content="Doe Agora — PROEC" />
-    <meta property="og:description" content="Cada R$ 50 equipa uma criança. Doe agora via PIX." />
+    <meta property="og:description" content="Transforme a vida de uma criança através do esporte. Doe ao PROEC via PIX ou transferência." />
     <meta property="og:image" content="/images/og-image.jpg" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,21 +45,6 @@
               Escolha como doar
             </h2>
 
-            <!-- Calculadora de impacto -->
-            <div style="background: var(--bg-primary); border: 1px solid var(--border-secondary); border-radius: var(--radius-3xl); padding: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--spacing-8);" data-reveal>
-              <h3 class="text-xl font-display" style="margin-bottom: var(--spacing-6);">Calculadora de Impacto</h3>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--spacing-3); margin-bottom: var(--spacing-6);" role="group" aria-label="Valores de doação pré-definidos">
-                <button class="btn btn--outline calc-btn" data-value="50" aria-pressed="false">R$ 50</button>
-                <button class="btn btn--outline calc-btn" data-value="100" aria-pressed="false">R$ 100</button>
-                <button class="btn btn--outline calc-btn" data-value="150" aria-pressed="false">R$ 150</button>
-                <button class="btn btn--outline calc-btn" data-value="200" aria-pressed="false">R$ 200</button>
-                <button class="btn btn--outline calc-btn" data-value="500" aria-pressed="false">R$ 500</button>
-              </div>
-              <div id="calc-result" style="background: var(--primary-100); border-radius: var(--radius-xl); padding: var(--spacing-5) var(--spacing-6); min-height: 60px; display: flex; align-items: center;" aria-live="polite">
-                <p style="color: var(--primary-800); font-weight: 600;">Selecione um valor para ver o impacto →</p>
-              </div>
-            </div>
-
             <!-- PIX -->
             <div style="background: var(--neutral-950); color: var(--text-inverse); border-radius: var(--radius-3xl); padding: clamp(2rem, 5vw, 3rem); margin-bottom: var(--spacing-6);" data-reveal>
               <div style="display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
@@ -81,9 +66,21 @@
             <!-- Banco -->
             <div style="background: var(--bg-primary); border: 1px solid var(--border-secondary); border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8);" data-reveal>
               <h3 class="text-base font-display" style="margin-bottom: var(--spacing-4);">Transferência Bancária</h3>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary);">
-                Dados bancários disponíveis sob solicitação em
-                <a href="mailto:contato@projetocrescer.org.br" style="color: var(--primary-600); font-weight: 600;">contato@projetocrescer.org.br</a>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 2;">
+                <strong>Banco:</strong> [preencher]<br>
+                <strong>Agência:</strong> [preencher]<br>
+                <strong>Conta:</strong> [preencher]<br>
+                <strong>Favorecido:</strong> PROEC — Projeto Esporte Crescer<br>
+                <strong>CNPJ:</strong> [preencher]
+              </p>
+            </div>
+
+            <!-- Contato / Comprovante -->
+            <div style="background: var(--bg-elevated); border: 1px solid var(--border-secondary); border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8);" data-reveal>
+              <h3 class="text-base font-display" style="margin-bottom: var(--spacing-3);">Dúvidas ou Envio de Comprovante</h3>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.8;">
+                Após realizar a transferência, envie o comprovante para:<br>
+                <a href="mailto:doe@projetocrescer.org.br" style="color: var(--primary-600); font-weight: 700;">doe@projetocrescer.org.br</a>
               </p>
             </div>
 
@@ -99,38 +96,6 @@
         </div>
       </section>
 
-      <!-- Tabela de impacto detalhada -->
-      <section class="doe section" id="impacto-doe" aria-labelledby="impacto-doe-title">
-        <div class="container">
-          <div class="doe__inner">
-            <div>
-              <div class="section-label overline" style="color: rgba(0,0,0,0.5);" data-reveal>Seu impacto</div>
-              <h2 id="impacto-doe-title" class="doe__title" data-reveal>Cada valor importa</h2>
-              <p class="doe__lead" data-reveal>Veja o que sua doação concretamente viabiliza para os jovens do PROEC.</p>
-            </div>
-            <div data-reveal="right">
-              <div class="doe__impact-table">
-                <div class="doe__impact-row">
-                  <span class="doe__impact-value">R$ 50</span>
-                  <span class="doe__impact-desc">Um uniforme completo para uma criança</span>
-                </div>
-                <div class="doe__impact-row">
-                  <span class="doe__impact-value">R$ 150</span>
-                  <span class="doe__impact-desc">Transporte para um torneio</span>
-                </div>
-                <div class="doe__impact-row">
-                  <span class="doe__impact-value">R$ 200</span>
-                  <span class="doe__impact-desc">Inscrição e material esportivo</span>
-                </div>
-                <div class="doe__impact-row">
-                  <span class="doe__impact-value">R$ 500</span>
-                  <span class="doe__impact-desc">Um mês de atividades para 10 crianças</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </main>
 
@@ -157,24 +122,7 @@
         })
       })
 
-      // Calculadora de impacto
-      const impacts = {
-        50:  'Sua doação de <strong>R$ 50</strong> equipa uma criança com uniforme completo.',
-        100: 'Sua doação de <strong>R$ 100</strong> cobre o material esportivo de uma criança por um mês.',
-        150: 'Sua doação de <strong>R$ 150</strong> leva uma criança a um torneio (transporte incluso).',
-        200: 'Sua doação de <strong>R$ 200</strong> cobre inscrição + material esportivo completo.',
-        500: 'Sua doação de <strong>R$ 500</strong> sustenta um mês de atividades para <strong>10 crianças</strong>.',
-      }
-      document.querySelectorAll('.calc-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.calc-btn').forEach(b => { b.classList.remove('btn--primary'); b.classList.add('btn--outline'); b.setAttribute('aria-pressed','false') })
-          btn.classList.remove('btn--outline')
-          btn.classList.add('btn--primary')
-          btn.setAttribute('aria-pressed', 'true')
-          const result = document.getElementById('calc-result')
-          if (result) result.innerHTML = `<p style="color: var(--primary-800); font-weight: 600;">${impacts[btn.dataset.value]}</p>`
-        })
-      })
+
     </script>
   </body>
 </html>
